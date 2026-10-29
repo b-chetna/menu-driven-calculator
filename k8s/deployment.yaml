@@ -12,9 +12,11 @@ spec:
   template:
     metadata:
       labels:
-        app: calculatora
+        app: calculator # ◄ Fixed: Removed the trailing 'a'
     spec:
       containers:
       - name: calculator
-        image: DOCKER_USERNAME/calculator:IMAGE_TAG
-        imagePullPolicy: Always
+        image: calculator-app:latest # ◄ Fixed: Point to your new local image
+        imagePullPolicy: IfNotPresent # ◄ Prevents Kubernetes from looking for it online
+        ports:
+        - containerPort: 5000
