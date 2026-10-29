@@ -1,7 +1,11 @@
 def add(a, b):
     return a + b
 
-@@ -10,7 +9,7 @@ def multiply(a, b):
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
 
 def divide(a, b):
     if b == 0:
@@ -9,7 +13,14 @@ def divide(a, b):
     return a / b
 
 def show_menu():
-@@ -25,29 +24,30 @@ def main():
+    print("\n--- Menu-Driven Calculator ---")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Exit")
+
+def main():
     while True:
         show_menu()
         choice = input("Enter choice (1-5): ")
