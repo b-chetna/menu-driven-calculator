@@ -9,11 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Stage 1 & 2: Source Code Checkout & Version Control
     - name: Checkout Source Code
       uses: actions/checkout@v4
 
-    # Stage 3: Continuous Integration (Dependencies & Automated Tests)
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
@@ -28,7 +26,6 @@ jobs:
       run: |
         pytest test_app.py
 
-    # Stage 4: Build & Push Docker Image
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
       with:
@@ -42,7 +39,6 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/calculator:${{ github.sha }}
 
-    # Stage 5: Kubernetes Deployment
     - name: Set up Kubectl
       uses: azure/setup-kubectl@v3
       with:
